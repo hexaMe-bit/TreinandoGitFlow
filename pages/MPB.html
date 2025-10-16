@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tudo sobre MPB — Edição 2025</title>
+  <meta name="theme-color" content="#0a0f14" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =======================
+       DESIGN TOKENS (2025)
+       ======================= */
+    :root {
+      --bg: #0a0f14;
+      --bg-elev: #0f1720cc;        /* glass card */
+      --txt: #e8eef6;
+      --muted: #a8b3c7;
+      --brand: #00e5a8;            /* neon verde */
+      --brand-2: #14b8ff;          /* ciano */
+      --accent: #ffd54a;           /* dourado suave */
+      --stroke: #1f2b3a;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --blur: 14px;
+      --maxw: 1100px;
+      --grad-hero: radial-gradient(1200px 600px at 80% -20%, #00e5a822 0%, transparent 60%),
+                   radial-gradient(800px 400px at 10% -10%, #14b8ff22 0%, transparent 55%),
+                   linear-gradient(135deg, #0b141b 0%, #0a1016 50%, #0c0f17 100%);
+      --link-bg: rgba(20, 184, 255, .12);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7fbff;
+        --bg-elev: #ffffffcc;
+        --txt: #0e1722;
+        --muted: #2b3b4f;
+        --brand: #00b88a;
+        --brand-2: #0077ff;
+        --accent: #c49000;
+        --stroke: #e6eef7;
+        --shadow: 0 10px 30px rgba(2, 12, 27, .08);
+        --grad-hero: radial-gradient(1200px 600px at 80% -20%, #00e5a80f 0%, transparent 60%),
+                     radial-gradient(800px 400px at 10% -10%, #14b8ff12 0%, transparent 55%),
+                     linear-gradient(135deg, #eef6ff 0%, #f7fbff 100%);
+        --link-bg: rgba(0, 119, 255, .08);
+      }
+    }
+    [data-theme="light"] { color-scheme: light; }
+    [data-theme="dark"] { color-scheme: dark; }
+
+    /* ==============
+       RESET + BASE
+       ============== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--txt);
+      background: var(--grad-hero), var(--bg);
+      line-height: 1.75;
+      overflow-x: hidden;
+      accent-color: var(--brand);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: var(--brand-2); text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ============
+       HEADER
+       ============ */
+    .hero {
+      position: relative;
+      padding: clamp(72px, 10vw, 140px) 20px 64px;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--stroke);
+      background:
+        radial-gradient(900px 300px at 50% -10%, rgba(255,213,74,.08), transparent 60%),
+        var(--grad-hero);
+      isolation: isolate;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: -30% -10%;
+      background:
+        radial-gradient(200px 200px at 15% 30%, #00e5a818, transparent 60%),
+        radial-gradient(220px 220px at 85% 20%, #14b8ff18, transparent 60%);
+      filter: blur(40px);
+      z-index: -1;
+      transform: translateZ(0);
+    }
+    .brand-title {
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: clamp(32px, 6vw, 56px);
+      line-height: 1.1;
+      letter-spacing: .3px;
+      font-weight: 700;
+      display: inline-block;
+      background: linear-gradient(90deg, var(--brand) 0%, var(--brand-2) 50%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 24px rgba(0, 229, 168, .12);
+    }
+    .subtitle {
+      margin: 14px auto 0;
+      max-width: 750px;
+      font-size: clamp(15px, 2.2vw, 18px);
+      color: var(--muted);
+    }
+
+    /* ============
+       NAV FLOAT
+       ============ */
+    .toc {
+      position: sticky;
+      top: 12px;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 18px auto 0;
+      padding: 10px;
+      max-width: var(--maxw);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      background: var(--bg-elev);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      border-radius: 999px;
+    }
+    .toc a {
+      padding: 10px 14px;
+      background: var(--link-bg);
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 600;
+      color: var(--txt);
+      transition: .25s ease;
+    }
+    .toc a:hover, .toc a:focus-visible {
+      border-color: var(--brand-2);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(20,184,255,.22);
+    }
+
+    /* ============
+       MAIN
+       ============ */
+    main { max-width: var(--maxw); margin: 40px auto; padding: 0 20px 80px; }
+
+    section.card {
+      background: var(--bg-elev);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      padding: clamp(22px, 4vw, 34px);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      transform: translateY(0);
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    section.card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 50px rgba(0, 229, 168, .1);
+      border-color: color-mix(in oklab, var(--stroke), var(--brand) 25%);
+    }
+
+    h2 {
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-weight: 700;
+      font-size: clamp(22px, 3.2vw, 30px);
+      margin: 0 0 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2 .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--accent), var(--brand-2));
+      box-shadow: 0 0 16px var(--brand-2);
+    }
+    h3 {
+      font-weight: 700;
+      margin: 18px 0 8px;
+      color: color-mix(in oklab, var(--txt), var(--brand-2) 25%);
+    }
+    p { margin: 10px 0 12px; }
+    strong { color: var(--accent); }
+    em { color: color-mix(in oklab, var(--txt), var(--brand-2) 35%); }
+
+    ul, ol { padding-left: 1.1rem; }
+    li { margin: 8px 0; }
+    ol li {
+      background: linear-gradient(180deg, rgba(255,213,74,.08), transparent);
+      border-left: 3px solid var(--accent);
+      padding: 10px 12px;
+      border-radius: 10px;
+    }
+    .yt {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 12px; margin-left: 8px;
+      border-radius: 12px; font-weight: 600;
+      background: var(--link-bg);
+      border: 1px solid var(--stroke);
+      transition: .25s ease;
+      color: var(--txt);
+    }
+    .yt svg { width: 16px; height: 16px; }
+    .yt:hover { transform: translateY(-1px) scale(1.02); border-color: var(--brand-2); }
+
+    /* GRID PARA ARTISTAS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    @media (max-width: 820px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .artist {
+      background: linear-gradient(180deg, rgba(0,229,168,.08), transparent);
+      border: 1px solid var(--stroke);
+      border-radius: 14px;
+      padding: 14px 16px;
+      transition: .25s ease;
+    }
+    .artist:hover { border-color: color-mix(in oklab, var(--stroke), var(--brand) 35%); }
+
+    /* ============
+       THEME TOGGLE
+       ============ */
+    .topbar {
+      position: fixed; right: 16px; bottom: 16px; z-index: 40;
+      display: flex; gap: 10px;
+    }
+    .btn {
+      border: 1px solid var(--stroke);
+      background: var(--bg-elev);
+      color: var(--txt);
+      padding: 10px 12px;
+      border-radius: 12px;
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      font-weight: 600;
+      transition: .25s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--brand); }
+
+    /* ============
+       FOOTER
+       ============ */
+    footer {
+      border-top: 1px solid var(--stroke);
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,.12));
+      padding: 28px 20px 60px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* ============
+       SCROLL REVEAL
+       ============ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: .5s ease;
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Respeito a acessibilidade */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <header class="hero" role="banner">
+    <h1 class="brand-title">Tudo sobre MPB <span aria-hidden="true">🎶</span></h1>
+    <p class="subtitle"><em>História, artistas e faixas que moldaram a Música Popular Brasileira — com um toque futurista.</em></p>
+
+    <!-- TOC flutuante -->
+    <nav class="toc" aria-label="Navegação de seções">
+      <a href="#inicio">Início</a>
+      <a href="#historia">História</a>
+      <a href="#artistas">Artistas</a>
+      <a href="#classicos">Clássicos</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main id="content" role="main">
+    <section id="inicio" class="card reveal" aria-labelledby="titulo-inicio">
+      <h2 id="titulo-inicio"><span class="dot" aria-hidden="true"></span> O Início</h2>
+      <p>
+        O termo surgiu nos anos 1960 para designar um movimento musical que misturava
+        elementos da música tradicional brasileira (samba, bossa nova, baião, chorinho)
+        com influências modernas (jazz, pop, rock, música erudita), criando uma sonoridade
+        nova e sofisticada.
+      </p>
+    </section>
+
+    <section id="historia" class="card reveal" aria-labelledby="titulo-historia">
+      <h2 id="titulo-historia"><span class="dot" aria-hidden="true"></span> História do Movimento</h2>
+
+      <h3>🕰 Anos 1960 – Origem e Consolidação</h3>
+      <p>
+        A MPB nasce no contexto da ditadura militar (1964–1985), quando artistas passaram a usar a música
+        como forma de expressão política e resistência cultural. Os Festivais da Canção (como os da TV Record)
+        foram fundamentais: revelaram nomes como <strong>Elis Regina</strong>, <strong>Chico Buarque</strong>,
+        <strong>Caetano Veloso</strong>, <strong>Gilberto Gil</strong>, <strong>Edu Lobo</strong>,
+        <strong>Nara Leão</strong> e outros.
+      </p>
+
+      <h3>🕰 Anos 1970 – Tropicalismo e Resistência</h3>
+      <p>
+        O movimento Tropicalista, liderado por Caetano Veloso e Gilberto Gil, fundiu MPB com rock, psicodelia
+        e cultura pop internacional. Mesmo sob censura e exílios, surgem clássicos como <em>Cálice</em> (Chico Buarque e Gil),
+        <em>Alegria, Alegria</em> (Caetano) e <em>Domingo no Parque</em> (Gil).
+      </p>
+
+      <h3>🕰 Anos 1980 – Popularização e Novas Vozes</h3>
+      <p>
+        A MPB dialoga mais com o pop sem perder sofisticação, com <strong>Djavan</strong>, <strong>Zizi Possi</strong>,
+        <strong>Gonzaguinha</strong>, <strong>Marina Lima</strong>, <strong>Rita Lee</strong>, <strong>Milton Nascimento</strong>.
+      </p>
+
+      <h3>🕰 Anos 1990 em diante – Misturas e Reinvenções</h3>
+      <p>
+        A MPB se mescla a samba-rock, axé, pop, rock nacional e eletrônica. <strong>Marisa Monte</strong>, <strong>Lenine</strong>,
+        <strong>Carlinhos Brown</strong>, <strong>Zeca Baleiro</strong>, <strong>Ana Carolina</strong>, e mais recente:
+        <strong>Maria Gadú</strong>, <strong>Rubel</strong>, <strong>Tiago Iorc</strong>, <strong>Liniker</strong>.
+      </p>
+    </section>
+
+    <section id="artistas" class="card reveal" aria-labelledby="titulo-artistas">
+      <h2 id="titulo-artistas"><span class="dot" aria-hidden="true"></span> Principais Artistas e Ícones</h2>
+
+      <div class="grid grid-2" role="list">
+        <div class="artist" role="listitem"><strong>Chico Buarque</strong> — Poeta e compositor engajado politicamente.</div>
+        <div class="artist" role="listitem"><strong>Caetano Veloso</strong> — Tropicalista, inovador, mistura tradição e vanguarda.</div>
+        <div class="artist" role="listitem"><strong>Gilberto Gil</strong> — Uniu baião, reggae, samba e rock.</div>
+        <div class="artist" role="listitem"><strong>Elis Regina</strong> — A “Pimentinha”, intérprete monumental.</div>
+        <div class="artist" role="listitem"><strong>Milton Nascimento</strong> — Voz marcante (“Travessia”).</div>
+        <div class="artist" role="listitem"><strong>Djavan</strong> — Letras líricas e harmonias complexas.</div>
+        <div class="artist" role="listitem">Gal Costa, Maria Bethânia, Tom Zé, Geraldo Vandré, Edu Lobo — essenciais.</div>
+      </div>
+    </section>
+
+    <section id="classicos" class="card reveal" aria-labelledby="titulo-classicos">
+      <h2 id="titulo-classicos"><span class="dot" aria-hidden="true"></span> Músicas Clássicas para Conhecer MPB</h2>
+      <ol>
+        <li>
+          “Águas de Março” — Tom Jobim &amp; Elis Regina
+          <a class="yt" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=%C3%81guas+de+Mar%C3%A7o+Elis+Regina+Tom+Jobim" aria-label="Ouvir Águas de Março no YouTube">
+            <!-- play icon -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg> ouvir
+          </a>
+        </li>
+        <li>
+          “Cálice” — Chico Buarque &amp; Gilberto Gil
+          <a class="yt" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=C%C3%A1lice+Chico+Buarque+Gilberto+Gil">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg> ouvir
+          </a>
+        </li>
+        <li>
+          “Alegria, Alegria” — Caetano Veloso
+          <a class="yt" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Alegria%2C+Alegria+Caetano+Veloso">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg> ouvir
+          </a>
+        </li>
+        <li>
+          “Travessia” — Milton Nascimento
+          <a class="yt" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Travessia+Milton+Nascimento">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg> ouvir
+          </a>
+        </li>
+        <li>
+          “O Bêbado e a Equilibrista” — João Bosco &amp; Aldir Blanc
+          <a class="yt" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=O+B%C3%AAbado+e+a+Equilibrista+Jo%C3%A3o+Bosco+Aldir+Blanc">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg> ouvir
+          </a>
+        </li>
+        <li>
+          “Flor de Lis” — Djavan
+          <a class="yt" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Flor+de+Lis+Djavan">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg> ouvir
+          </a>
+        </li>
+        <li>
+          “Construção” — Chico Buarque
+          <a class="yt" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Constru%C3%A7%C3%A3o+Chico+Buarque">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg> ouvir
+          </a>
+        </li>
+        <li>
+          “Disparada” — Jair Rodrigues &amp; Geraldo Vandré
+          <a class="yt" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Disparada+Jair+Rodrigues+Geraldo+Vandr%C3%A9">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg> ouvir
+          </a>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>Feito por Lucas 🎸 | Projeto: <strong>Tudo sobre MPB</strong> • <span id="year"></span></p>
+  </footer>
+
+  <!-- Ações rápidas: theme toggle + voltar ao topo -->
+  <div class="topbar" aria-live="polite">
+    <button class="btn" id="themeBtn" aria-pressed="true" aria-label="Alternar tema">🌗 Tema</button>
+    <button class="btn" id="toTop" aria-label="Voltar ao topo">⤴️ Topo</button>
+  </div>
+
+  <script>
+    // Persistência de tema
+    const root = document.documentElement;
+    const btn = document.getElementById('themeBtn');
+    const saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+
+    function toggleTheme() {
+      const current = root.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      btn.setAttribute('aria-pressed', String(next === 'dark' ? true : false));
+    }
+    btn.addEventListener('click', toggleTheme);
+
+    // Voltar ao topo
+    document.getElementById('toTop').addEventListener('click', () =>
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    );
+
+    // Ano dinâmico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal simples
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('in');
+      });
+    }, { threshold: .12 });
+
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
