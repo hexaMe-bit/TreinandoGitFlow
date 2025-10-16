@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Futebol</title>
+    <title>Menu de Navegação</title>
     <style>
         * {
             margin: 0;
@@ -72,29 +72,40 @@
             left: 100%;
         }
 
-        li:first-child a {
+        li:nth-child(1) a {
             background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
-        li:first-child a:hover {
+        li:nth-child(1) a:hover {
             background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
         }
 
-        li:last-child a {
+        li:nth-child(2) a {
             background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
             box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
         }
 
-        li:last-child a:hover {
+        li:nth-child(2) a:hover {
             background: linear-gradient(135deg, #ff1744 0%, #dc143c 100%);
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(220, 20, 60, 0.6);
         }
 
-        @media (max-width: 600px) {
+        li:nth-child(3) a {
+            background: linear-gradient(135deg, #00a86b 0%, #006b3f 100%);
+            box-shadow: 0 4px 15px rgba(0, 168, 107, 0.4);
+        }
+
+        li:nth-child(3) a:hover {
+            background: linear-gradient(135deg, #00c97d 0%, #00a86b 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 168, 107, 0.6);
+        }
+
+        @media (max-width: 768px) {
             nav {
                 padding: 30px 20px;
             }
@@ -116,6 +127,7 @@
         <ul>
             <li><a href="corinthians.html">⚽ Corinthians</a></li>
             <li><a href="flamengo.html">⚽ Flamengo</a></li>
+            <li><a href="MPB.html">🎵 MPB</a></li>
         </ul>
     </nav>
 </body>
