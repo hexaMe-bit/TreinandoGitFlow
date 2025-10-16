@@ -1,0 +1,117 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e4002b 0%, #000000 100%);
+      color: #ffffff;
+      line-height: 1.8;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      font-size: 2.5rem;
+      margin: 30px 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+      animation: fadeIn 1s ease-in;
+    }
+    
+    img {
+      display: block;
+      margin: 30px auto;
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+    
+    img:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    p {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+      font-size: 1.1rem;
+      text-align: justify;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      animation: slideUp 0.8s ease-out;
+    }
+    
+    br {
+      display: block;
+      margin: 15px 0;
+      content: "";
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsividade */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+        margin: 20px 0;
+      }
+      
+      p {
+        padding: 20px;
+        font-size: 1rem;
+      }
+      
+      img {
+        max-width: 150px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+      }
+      
+      p {
+        padding: 15px;
+        font-size: 0.95rem;
+      }
+      
+      img {
+        max-width: 120px;
+      }
+      
+      body {
+        padding: 10px;
+      }
+    }
